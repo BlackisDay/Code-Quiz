@@ -5,37 +5,37 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Coding Quiz</title>
+        <!--Style Sheet + Font Style(Poppins(Latin,Devanagari))-->
         <link rel="stylesheet" href="assets/style/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
     </head>
-  
-    <body>
-        <!---Start Button-->
-        <div class="StartButton">
-            <button>Start Quiz</button>
-        </div>
-        <!--Info-->
-        <div class="display_container">
-            <div id="number">
-                <span class="number-of-questions">
-                    1 of 10 questions
-                </span>
+        <body>
+            <!--Start Screen+Button-->
+            <div class="start-screen">
+              <button id="start-button">Start</button>
             </div>
-            <div id="timer">
-                <img src ="assets/images/timer.png" alt="timer" width="20px">
-                <span class="timeleft" style="color:rgb(0, 238, 255)">300s</span>
+            <div id="display-container">
+              <div class="header">
+                <div class="number-of-count">
+                  <span class="number-of-question">1 of 4 questions</span>
+                </div>
+                <div class="timer">
+                  <img src="./assets/images/timer.png">
+                  <span class="time-left">10s</span>
+                </div>
+              </div>
+              <div id="container">
+                <!-- questions and options will be displayed here -->
+              </div>
+              <!--Next Button-->
+              <button id="next-button">Next</button>
             </div>
-            <button id="NextButton" style="font-size:20px;color:red;background-color:black">
-            Next
-        </button>
-        <div id="questions">
-            <!--questions-->
-        </div>
-        <div class="HideScore">
-            <div id="userscore">test</div>
-            <button id="Restart" style="font-size:20px;color:red;background-color:black">Restart</button>
-        </div>
-    </div>
-        <script src="js/main.js">
-        </script>
-    </body>
+            <!--Score Container + Hide Score + Restart Button-->
+            <div class="score-container hide"> 
+              <div id="user-score">Score</div>
+              <button id="restart">Restart</button> <!--Will Restart if Clicked-->
+            </div>
+            <!-- Script -->
+            <script src="./js/main.js"></script>
+          </body>
 </html>
