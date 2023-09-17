@@ -10,7 +10,7 @@ let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 let questionCount;
 let scoreCount = 0;
-let count = 10;
+let count = 60;
 let countdown;
 const quizArray = [
     {
@@ -32,9 +32,39 @@ const quizArray = [
       correct: "An array has a fixed size",
 
       id: "3",
-      question: "What is an Object in Javascript?",
+      question: "What is an Object in JavaScript?",
       options:["A collection of properties containing primitive data types", "A collection of arrays","A collection of Yes and No","A collection of Magazines"],
       correct: "A collection of properties containing primitive data types",
+
+      id: "4",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
+
+      id: "5",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
+
+      id: "6",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
+
+      id: "7",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
+
+      id: "8",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
+
+      id: "9",
+      question:"What operator is used to calculate the remainder in JavaScript",
+      options:["*"," %" , "/" , "&"],
+      correct:["%"],
     },
   ];
   
