@@ -39,38 +39,38 @@ var quizArray = [{
     {
       id: "4",
       question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      options:["*","%" , "/" , "&"],
+      correct:"%",
     },
     {
       id: "5",
       question:"What is the 9+10",
-      options:["18"," 19" , "20" , "21"],
-      correct:["19"],
+      options:["18","19" , "20" , "21"],
+      correct:"19",
     },
     {
       id: "6",
       question:"What is the difference between Java and JavaScript",
       options:["JavaScript is more commonly used in web applications like browsers, while Java is more widely used in app development"," Java is used more in web browser while JavaScript isn't" , "JavaScript is not interpreted but Java Is" , "JavaScript is Object-Based Programming Language while Java is Object Oriented"],
-      correct:["JavaScript is more commonly used in web applications like browsers, while Java is more widely used in app development"],
+      correct:"JavaScript is more commonly used in web applications like browsers, while Java is more widely used in app development",
     },
     {
       id: "7",
       question:"What is 2*2/2(2)",
-      options:["4"," 6" , "8" , "10"],
-      correct:["4"],
+      options:["4","6" , "8" , "10"],
+      correct:"4",
     },
     {
       id: "8",
       question:"What operator is used for equal in JavaScript",
-      options:["="," *" , "&" , "!"],
-      correct:["="],
+      options:["=","*" , "&" , "!"],
+      correct:"=",
     },
     {
       id: "9",
       question:"What operator is used to calculate the addition in JavaScript",
-      options:["+"," -" , "/" , "&"],
-      correct:["+"],
+      options:["+","-" , "/" , "&"],
+      correct:"+",
     },
   ];
   
@@ -109,7 +109,7 @@ const endQuiz = function (){
         scoreContainer.classList.remove("hide");
         //user score
         userScore.innerHTML =
-          "Your score is " + scoreCount + " out of " + questionCount + "" + ScorePercentage();
+          "Your score is " + scoreCount + " out of " + questionCount;
       }
   //Timer
   const timerDisplay = () => {
@@ -124,12 +124,6 @@ const endQuiz = function (){
     }, 1000);
 
   };
-  var ScorePercentage = function () {
-    var Calculated;
-    Calculated = (Math.floor((scoreCount/questionCount) * 100).toString())
-    console.log(Math.floor((scoreCount/questionCount) * 100))
-}
-
   //Display quiz
   const quizDisplay = (questionCount) => {
     let quizCards = document.querySelectorAll(".container-mid");
@@ -153,7 +147,7 @@ const endQuiz = function (){
       let div = document.createElement("div");
       div.classList.add("container-mid", "hide");
       //question number
-      countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Question";
+      countOfQuestion.innerHTML = 1 + " of " + quizArray.length;
       //question
       let question_DIV = document.createElement("p");
       question_DIV.classList.add("question");
