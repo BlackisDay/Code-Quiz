@@ -44,33 +44,33 @@ var quizArray = [{
     },
     {
       id: "5",
-      question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      question:"What is the 9+10",
+      options:["18"," 19" , "20" , "21"],
+      correct:["19"],
     },
     {
       id: "6",
-      question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      question:"What is the difference between Java and JavaScript",
+      options:["JavaScript is more commonly used in web applications like browsers, while Java is more widely used in app development"," Java is used more in web browser while JavaScript isn't" , "JavaScript is not interpreted but Java Is" , "JavaScript is Object-Based Programming Language while Java is Object Oriented"],
+      correct:["JavaScript is more commonly used in web applications like browsers, while Java is more widely used in app development"],
     },
     {
       id: "7",
-      question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      question:"What is 2*2/2(2)",
+      options:["4"," 6" , "8" , "10"],
+      correct:["4"],
     },
     {
       id: "8",
-      question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      question:"What operator is used for equal in JavaScript",
+      options:["="," *" , "&" , "!"],
+      correct:["="],
     },
     {
       id: "9",
-      question:"What operator is used to calculate the remainder in JavaScript",
-      options:["*"," %" , "/" , "&"],
-      correct:["%"],
+      question:"What operator is used to calculate the addition in JavaScript",
+      options:["+"," -" , "/" , "&"],
+      correct:["+"],
     },
   ];
   
@@ -85,16 +85,11 @@ var quizArray = [{
   nextBtn.addEventListener("click",(displayNext = () => {
       //increment questionCount
       questionCount += 1;
-      console.log(quizArray.length)
-      console.log(quizArray)
+      //console.log(quizArray.length)
+      //console.log(quizArray)
       //if last question
       if (questionCount == quizArray.length) {
-        //hide question container and display score
-        displayContainer.classList.add("hide");
-        scoreContainer.classList.remove("hide");
-        //user score
-        userScore.innerHTML =
-          "Your score is " + scoreCount + " out of " + questionCount;
+        endQuiz();
       } else {
         //display questionCount
         countOfQuestion.innerHTML =
@@ -108,19 +103,28 @@ var quizArray = [{
     })
   );
   
+const endQuiz = function (){
+        //hide question container and display score
+        displayContainer.classList.add("hide");
+        scoreContainer.classList.remove("hide");
+        //user score
+        userScore.innerHTML =
+          "Your score is " + scoreCount + " out of " + questionCount;
+      }
   //Timer
   const timerDisplay = () => {
     countdown = setInterval(() => {
-      count--;
+      count;
       timeLeft.innerHTML = `${count}s`;
-      if (count == 0) {
+      if (count <= 0) {
         clearInterval(countdown);
+        endQuiz();
         displayNext();
       }
     }, 1000);
 
   };
-  
+
   //Display quiz
   const quizDisplay = (questionCount) => {
     let quizCards = document.querySelectorAll(".container-mid");
@@ -164,8 +168,7 @@ var quizArray = [{
   //Checker Function to check if option is correct or not
   function checker(userOption) {
     let userSolution = userOption.innerText;
-    let question =
-      document.getElementsByClassName("container-mid")[questionCount];
+    let question = document.getElementsByClassName("container-mid")[questionCount];
     let options = question.querySelectorAll(".option-div");
   
     //if user clicks the correct answer it is stored in a object
