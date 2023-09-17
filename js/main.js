@@ -109,12 +109,12 @@ const endQuiz = function (){
         scoreContainer.classList.remove("hide");
         //user score
         userScore.innerHTML =
-          "Your score is " + scoreCount + " out of " + questionCount;
+          "Your score is " + scoreCount + " out of " + questionCount + "" + ScorePercentage();
       }
   //Timer
   const timerDisplay = () => {
     countdown = setInterval(() => {
-      count;
+      count--;
       timeLeft.innerHTML = `${count}s`;
       if (count <= 0) {
         clearInterval(countdown);
@@ -124,6 +124,11 @@ const endQuiz = function (){
     }, 1000);
 
   };
+  var ScorePercentage = function () {
+    var Calculated;
+    Calculated = (Math.floor((scoreCount/questionCount) * 100).toString())
+    console.log(Math.floor((scoreCount/questionCount) * 100))
+}
 
   //Display quiz
   const quizDisplay = (questionCount) => {
@@ -174,10 +179,10 @@ const endQuiz = function (){
     //if user clicks the correct answer it is stored in a object
     if (userSolution === quizArray[questionCount].correct) {
       userOption.classList.add("correct");
-      scoreCount++;
+      scoreCount++; //Add +1 in score if correct
     } else {
       userOption.classList.add("incorrect");
-      count = count - 15;
+      count = count - 15; //Subtract 15s if wrong
       //Marks the correct answer
       options.forEach((element) => {
         if (element.innerText == quizArray[questionCount].correct) {
