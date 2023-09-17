@@ -10,10 +10,9 @@ let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 let questionCount;
 let scoreCount = 0;
-let count = 60;
+let count = 120;
 let countdown;
-const quizArray = [
-    {
+var quizArray = [{
       id: "0",
       question: "What is JavaScript?",
       options: ["A Programming language for Website", "A Scripture written in books", "A video Game", "A glossary"],
@@ -30,37 +29,44 @@ const quizArray = [
       question: "Does an array have a fixed size?",
       options: ["An array has a fixed size", "An array can be changed later by another code", "An array can be shrinked", "An array can be re-declared"],
       correct: "An array has a fixed size",
-
+    },
+    {
       id: "3",
       question: "What is an Object in JavaScript?",
       options:["A collection of properties containing primitive data types", "A collection of arrays","A collection of Yes and No","A collection of Magazines"],
       correct: "A collection of properties containing primitive data types",
-
+    },
+    {
       id: "4",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
       correct:["%"],
-
+    },
+    {
       id: "5",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
       correct:["%"],
-
+    },
+    {
       id: "6",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
       correct:["%"],
-
+    },
+    {
       id: "7",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
       correct:["%"],
-
+    },
+    {
       id: "8",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
       correct:["%"],
-
+    },
+    {
       id: "9",
       question:"What operator is used to calculate the remainder in JavaScript",
       options:["*"," %" , "/" , "&"],
@@ -76,11 +82,11 @@ const quizArray = [
   });
   
   //Next Button
-  nextBtn.addEventListener(
-    "click",
-    (displayNext = () => {
+  nextBtn.addEventListener("click",(displayNext = () => {
       //increment questionCount
       questionCount += 1;
+      console.log(quizArray.length)
+      console.log(quizArray)
       //if last question
       if (questionCount == quizArray.length) {
         //hide question container and display score
@@ -129,11 +135,11 @@ const quizArray = [
   //Quiz Creation
   function quizCreator() {
     //randomly sort questions
-    quizArray.sort(() => Math.random() - 0.5);
+    quizArray.sort(() => Math.random() - 0.1);
     //generate quiz
     for (let i of quizArray) {
       //randomly sort options
-      i.options.sort(() => Math.random() - 0.5);
+      i.options.sort(() => Math.random() - 0.1);
       //quiz card creation
       let div = document.createElement("div");
       div.classList.add("container-mid", "hide");
@@ -168,7 +174,7 @@ const quizArray = [
       scoreCount++;
     } else {
       userOption.classList.add("incorrect");
-      count--;
+      count = count - 15;
       //Marks the correct answer
       options.forEach((element) => {
         if (element.innerText == quizArray[questionCount].correct) {
@@ -190,11 +196,11 @@ const quizArray = [
     quizContainer.innerHTML = "";
     questionCount = 0;
     scoreCount = 0;
-    count;
+    count = 120;
     clearInterval(countdown);
     timerDisplay();
-    quizCreator();
-    quizDisplay(questionCount);
+    quizCreator();//Creates the questions
+    quizDisplay(questionCount); //Shows the question
   }
   
   //when user clicks the start button
