@@ -110,6 +110,7 @@ const endQuiz = function (){
         //user score
         userScore.innerHTML =
           "Your score is " + scoreCount + " out of " + questionCount;
+          stored();
       }
   //Timer
   const timerDisplay = () => {
@@ -211,7 +212,14 @@ const endQuiz = function (){
     displayContainer.classList.remove("hide");
     initial();
   });
-  
+  function stored(){
+    var name = localStorage.setItem("Name","initialName")
+    var initialName;
+    initialName = prompt("Enter your initials").toString();
+    name.getItem("name")
+    var score = localStorage.setItem("Score",scoreCount);
+    score.getItem(scoreCount)
+  }
   //hide quiz and display start screen
   window.onload = () => {
     startScreen.classList.remove("hide");
