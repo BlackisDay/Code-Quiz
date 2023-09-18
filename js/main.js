@@ -212,14 +212,14 @@ const endQuiz = function (){
     displayContainer.classList.remove("hide");
     initial();
   });
+  var scores =   localStorage.getItem("Scores") || [ ] // get existing scores from local storage if there is already an array saved and if not make an empty array
   function stored(){
-    var name = localStorage.setItem("Name","initialName")
-    var initialName;
-    initialName = prompt("Enter your initials").toString();
-    name.getItem("name")
-    var score = localStorage.setItem("Score",scoreCount);
-    score.getItem(scoreCount)
-  }
+      var initialName;
+      initialName = prompt("Enter your initials").toString();
+      var userScores = JSON.stringify({"initial":initialName, "score":scoreCount}) //create score object
+      scores.push(userScores)
+      localStorage.setItem("Scores",scores);   //update local storage value of scores with new object    
+    }
   //hide quiz and display start screen
   window.onload = () => {
     startScreen.classList.remove("hide");
